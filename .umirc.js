@@ -8,7 +8,7 @@ export default {
       antd: true,
       dva: true,
       dynamicImport: { webpackChunkName: true },
-      title: 'yaru',
+      title: '小小图床',
       dll: true,
       locale: {
         enable: true,

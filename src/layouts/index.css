@@ -9,9 +9,18 @@
   text-align: center;
   font-size: 18px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
 }
 .setting {
   float: right;
   font-size: 18px;
   color: #fff;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.love {
+  float: right;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
 }
