@@ -7,9 +7,9 @@ export default {
     ['umi-plugin-react', {
       antd: true,
       dva: true,
-      dynamicImport: { webpackChunkName: true },
+      // dynamicImport: { webpackChunkName: true },
       title: '小小图床',
-      dll: true,
+      // dll: true,
       locale: {
         enable: true,
         default: 'en-US',
