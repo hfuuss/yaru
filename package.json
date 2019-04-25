@@ -14,9 +14,11 @@
     "dva": "^2.5.0-beta.2",
     "moment": "^2.24.0",
     "qiniu-js": "^2.5.4",
-    "react": "^16.7.0",
+    "react": "^16.8.6",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.8.6",
+    "react-zmage": "^0.7.1",
+    "umi-plugin-locale": "^2.6.2"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

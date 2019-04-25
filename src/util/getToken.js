@@ -11,7 +11,7 @@ const genUpToken = (accessKey, secretKey, putPolicy) => {
   //SETP 3
   var encoded = base64.encode(put_policy);
   //SETP 4
-  console.log(encoded,'encoded',secretKey)
+  // console.log(encoded,'encoded',secretKey)
   var hash = CryptoJS.HmacSHA1(encoded, secretKey);
   var encoded_signed = hash.toString(CryptoJS.enc.Base64);
   //SETP 5

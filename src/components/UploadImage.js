@@ -3,7 +3,8 @@ import { Upload, Icon, message, Row, Card, Tooltip, Progress } from 'antd'
 import { connect } from 'dva'
 import * as qiniujs from 'qiniu-js'
 import moment from 'moment'
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {CopyToClipboard} from 'react-copy-to-clipboard'
+import Zmage from 'react-zmage'
 import genUpToken from '../util/getToken'
 
 const { Dragger } = Upload;
@@ -22,10 +23,10 @@ class UploadImage extends Component {
       percent: 0
     }
     this.pastFile = null
-    this.accessKey = ''
-    this.secretKey = ''
-    this.bucket = ''
-    this.host = ''
+    this.accessKey = this.props.accessKey
+    this.secretKey = this.props.secretKey
+    this.bucket = this.props.bucket
+    this.host = this.props.host
     this.fileName = `${moment().format('YYYY-MM-DD')}-${moment().unix()}.jpg`
     this.putPolicy = {
       scope:`${this.bucket}:${this.fileName}`,
@@ -67,7 +68,8 @@ class UploadImage extends Component {
      })
     },
     error : (err) => {
-      console.log('err',err)
+      message.error('请查看配置是否正确')
+      message.error(err.message)
     }, 
     complete: (res) =>{
       message.success('上传成功！')
@@ -119,7 +121,7 @@ class UploadImage extends Component {
                   bordered
                   hoverable
                   style={{ width: 240 }}
-                  cover={<img alt={i} src={i}  />}
+                  cover={<Zmage src={i}alt={i}/>}
                   actions={[
                     <CopyToClipboard 
                       text={i}

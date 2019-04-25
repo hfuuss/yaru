@@ -43,11 +43,26 @@ handleOk = (e) => {
 
 handleSubmit = (e) => {
   e.preventDefault();
+  const {dispatch} = this.props
+
   this.props.form.validateFieldsAndScroll((err, values) => {
     if (!err) {
       console.log('Received values of form: ', values);
     }
-  });
+    Object.keys(values).map(key => localStorage.setItem(key,values[key]));
+    dispatch({
+      type: 'config/chageConfigKey',
+      payload: {
+        accessKey:  values['yaccessKey'],
+        secretKey:  values['ysecretKey'],
+        bucket:  values['ybucket'],
+        host: values['yhost']
+      }
+    })
+    this.setState({
+      visible: false,
+    });
+  })
 }
 
 
@@ -125,6 +140,7 @@ render () {
           小小图床 ©2018 Created by 九月大人
         </Footer>
       </Layout>
+      {/* 弹框 */}
       <Modal
         title="修改配置"
         visible={this.state.visible}
@@ -133,25 +149,43 @@ render () {
       >
         <Form {...formItemLayout} onSubmit={this.handleSubmit}>
           <Form.Item 
-            label="userName"
+            label="空间名称"
           >
-            {getFieldDecorator('userName', {
-              rules: [{ required: true, message: 'Please input your username!' }],
+            {getFieldDecorator('ybucket', {
+              rules: [{ required: true, message: '请输入空间名称!' }],
             })(
-              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入空间名称!" />
             )}
           </Form.Item>
           <Form.Item
-            label="password"
+            label="AK"
           >
-            {getFieldDecorator('password', {
-              rules: [{ required: true, message: 'Please input your Password!' }],
+            {getFieldDecorator('yaccessKey', {
+              rules: [{ required: true, message: '请输入Access Key！' }],
             })(
-              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入Access Key！" />
+            )}
+          </Form.Item>
+          <Form.Item
+            label="SK"
+          >
+            {getFieldDecorator('ysecretKey', {
+              rules: [{ required: true, message: '请输入Secret Key！' }],
+            })(
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入Secret Key！" />
+            )}
+          </Form.Item>
+          <Form.Item
+            label="域名"
+          >
+            {getFieldDecorator('yhost', {
+              rules: [{ required: true, message: '请输入域名!' }],
+            })(
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入域名，例如http://xxxx.z0.glb.clouddn.com" />
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">登陆</Button>
+            <Button type="primary" htmlType="submit">保存</Button>
           </Form.Item>
         
         </Form>
