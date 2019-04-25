@@ -1,12 +1,25 @@
-/**
- * 不是真实的 webpack 配置，仅为兼容 webstorm 和 intellij idea 代码跳转
- * ref: https://github.com/umijs/umi/issues/1109#issuecomment-423380125
- */
+// // Require the webpack-chain module. This module exports a single
+// // constructor function for creating a configuration API.
+// const Config = require('webpack-chain');
 
-module.exports = {
-  resolve: {
-    alias: {
-      '@': require('path').resolve(__dirname, 'src'),
-    },
-  },
-};
+// // Instantiate the configuration with a new API
+// const config = new Config();
+
+// // Make configuration changes using the chain API.
+// // Every API call tracks a change to the stored configuration.
+
+// config
+//   .output
+//     .path('docs')
+//     .publicPath('/yaru/')
+// config
+//   .devServer
+//   .publicPath('/yaru/')
+// module.exports = config.toConfig();
+// // module.exports = {
+// //   resolve: {
+// //     alias: {
+// //       '@': require('path').resolve(__dirname, 'src'),
+// //     },
+// //   },
+// // };

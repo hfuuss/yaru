@@ -25,4 +25,6 @@ export default {
       },
     }],
   ],
+  outputPath: './docs',
+  publicPath: '/yaru/'
 }
