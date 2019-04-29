@@ -107,10 +107,6 @@ render () {
               this.setState({
                 menukey: e.key,
               })
-              // dispatch({
-              //   type: 'menu/chageMenukey',
-              //   payload: e.key
-              // });
             }}
             theme="dark"
             mode="horizontal"
@@ -134,7 +130,6 @@ render () {
                   我的上传，还木有找到前端js的SDK，还得自己写token生成算法。之后再开发吧。
                 </div>
               }
-              aaaaa
             </div>
           </div>
           
@@ -155,7 +150,7 @@ render () {
             label="空间名称"
           >
             {getFieldDecorator('ybucket', {
-              rules: [{ required: true, message: '请输入空间名称!' }],
+              rules: [{ required: true, message: '请输入空间名称!如：demo' }],
             })(
               <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入空间名称!" />
             )}
@@ -184,7 +179,7 @@ render () {
             {getFieldDecorator('yhost', {
               rules: [{ required: true, message: '请输入域名!' }],
             })(
-              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入域名，例如http://xxxx.z0.glb.clouddn.com" />
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入域名，例如http://xxxx.z0.glb.clouddn.com/" />
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
