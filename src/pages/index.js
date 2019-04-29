@@ -21,6 +21,7 @@ export default connect(mapStateToProps)((props) => {
           我的上传，还木有找到前端js的SDK，还得自己写token生成算法。之后再开发吧。
         </div>
       }
+      test
     </div>
   );
 })
