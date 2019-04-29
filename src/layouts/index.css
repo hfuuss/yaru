@@ -24,3 +24,8 @@
   color: #fff;
   cursor: pointer;
 }
+.container {
+  font-family: Georgia, sans-serif;
+  margin-top: 4em;
+  text-align: center;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Icon, Modal,Carousel,Form,Input,Button} from 'antd';
 import { connect } from 'dva'
+import UploadImage from '../components/UploadImage'
 import styles from './index.css';
 
 const { Header, Footer, Content } = Layout;
@@ -10,7 +11,8 @@ constructor(props) {
   super(props);
   this.state = {
     visible: false,
-    loveVisible: false
+    loveVisible: false,
+    menukey: 'home'
   }
 }
 
@@ -26,16 +28,6 @@ handelInputChange =  (k,v) => {
   })
 }
 handleOk = (e) => {
-  const {dispatch} = this.props
-  dispatch({
-    type: 'config/chageConfigKey',
-    payload: {
-      accessKey: 'a',
-      secretKey: 'b',
-      bucket: 'd',
-      host:'d',
-    }
-  })
   this.setState({
     visible: false,
   });
@@ -68,7 +60,7 @@ handleSubmit = (e) => {
 
 render () {
   const { getFieldDecorator } = this.props.form
-  const {dispatch} = this.props
+  const {menukey} = this.state
   const formItemLayout = {
     labelCol: {
       xs: { span: 24 },
@@ -112,15 +104,17 @@ render () {
           </div>
           <Menu
             onClick={ e => {
-              
-              dispatch({
-                type: 'menu/chageMenukey',
-                payload: e.key
-              });
+              this.setState({
+                menukey: e.key,
+              })
+              // dispatch({
+              //   type: 'menu/chageMenukey',
+              //   payload: e.key
+              // });
             }}
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={['home']}
+            selectedKeys={menukey}
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="home">首页</Menu.Item>
@@ -132,12 +126,21 @@ render () {
         <Content style={{ padding: '0 50px' }}>
           <div style={{ margin: '16px 0' }} />
           <div style={{ background: '#fff', padding: 24, minHeight: 780 }}>
-            {this.props.children}
+              <div className={styles.container}>
+              {menukey === 'home' && <UploadImage/>}
+              {
+                menukey === 'myupload' && 
+                <div>
+                  我的上传，还木有找到前端js的SDK，还得自己写token生成算法。之后再开发吧。
+                </div>
+              }
+              aaaaa
+            </div>
           </div>
           
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          小小图床 ©2018 Created by 九月大人
+          小小图床 ©2019 Created by 九月大人
         </Footer>
       </Layout>
       {/* 弹框 */}
