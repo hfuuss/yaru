@@ -200,7 +200,7 @@ render () {
         onOk={this.handleOk}
         onCancel={() => this.handelInputChange('loveVisible',false)}
       >
-        <img alt={''} src={"http://images.hfuusec.cn/18-12-28/52902299.jpg"}  />
+        <img width="100%" alt={''} src={"http://images.hfuusec.cn/18-12-28/52902299.jpg"}  />
       </Modal>
       </div>
     );
