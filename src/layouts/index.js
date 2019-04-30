@@ -200,13 +200,7 @@ render () {
         onOk={this.handleOk}
         onCancel={() => this.handelInputChange('loveVisible',false)}
       >
-      <Carousel autoplay>
         <img alt={''} src={"http://images.hfuusec.cn/18-12-28/52902299.jpg"}  />
-        <img alt={''} src={"http://images.hfuusec.cn/18-12-28/61565077.jpg"}  />
-        <img alt={''} src={"http://images.hfuusec.cn/18-12-28/26270668.jpg"}  />
-        <img alt={''} src={"http://images.hfuusec.cn/18-12-28/76561905.jpg"}  />
-        <img alt={''} src={"http://images.hfuusec.cn/18-12-28/72791839.jpg"}  />
-      </Carousel>
       </Modal>
       </div>
     );
