@@ -115,7 +115,7 @@ render () {
           >
             <Menu.Item key="home">首页</Menu.Item>
             <Menu.Item key="myupload">我的上传</Menu.Item>
-            <Menu.Item key="#">Chrome插件</Menu.Item>
+            <Menu.Item key="chrome_plugin">Chrome插件</Menu.Item>
           </Menu>
           
         </Header>
@@ -128,6 +128,12 @@ render () {
                 menukey === 'myupload' && 
                 <div>
                   我的上传，还木有找到前端js的SDK，还得自己写token生成算法。之后再开发吧。
+                </div>
+              }
+              {
+                menukey === 'chrome_plugin' && 
+                <div>
+                   待开发插件
                 </div>
               }
             </div>
