@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon, Modal,Carousel,Form,Input,Button} from 'antd';
+import { Layout, Menu, Icon, Modal,Form,Input,Button} from 'antd';
 import { connect } from 'dva'
 import UploadImage from '../components/UploadImage'
 import styles from './index.css';
