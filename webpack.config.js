@@ -11,7 +11,7 @@
  config
    .output
      .path('docs')
-     .publicPath('/yaru/')
+     .publicPath('/')
 // config
 //   .devServer
 //   .publicPath('/yaru/')
